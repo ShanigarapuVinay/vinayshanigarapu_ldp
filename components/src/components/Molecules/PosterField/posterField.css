@@ -1,0 +1,30 @@
+.poster-field .logo {
+    position: absolute;
+    width: Fixed (210px)px;
+    height: Hug (36px)px;
+    top: 40px;
+    left: 56px;
+    padding: 2px 4px 2px 4px;
+    gap: 8px;
+    opacity: 0px; 
+  }
+  
+  .poster-field .poster {
+    position: absolute;
+    width: 457px;
+    height: 457px;
+    top: 178px;
+    left: 59.95px;
+    gap: 0px;
+    opacity: 0px;
+  }
+  
+  .poster-field {
+    position: relative; /* Add this line if you want to position child elements relative to this element */
+    background-color: #393552;
+    width: 575px;
+    height: 779px;
+    gap: 0px;
+    opacity: 0px;
+  }
+  
