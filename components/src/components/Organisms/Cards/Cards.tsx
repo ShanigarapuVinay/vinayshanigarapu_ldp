@@ -9,7 +9,7 @@ const Cards: React.FC<CardsProps> = ({cards}) => {
   return (
     <div className="cards">
       {cards.map((card) => (
-        <CardData mainText={card.mainText} subText={card.subText} key={card.mainText}>{card.children}</CardData>
+        <CardData mainText={card.mainText} subText={card.subText} key={card.mainText} src={card.src} alt={card.alt} height={card.height}></CardData>
       ))}
     </div>
   );

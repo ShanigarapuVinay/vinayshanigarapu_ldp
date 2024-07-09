@@ -7,18 +7,22 @@ import "./inputWithIcon.css";
 interface InputWithIconProps {
   type: string;
   placeholder: string;
-  children: React.ReactNode;
+  src: string;
+  alt: string;
+  height: string;
   required: boolean;
 }
 const InputWithIcon: React.FC<InputWithIconProps> = ({
   type,
   placeholder,
-  children,
+  src,
+  alt,
+  height,
   required,
 }) => {
   return (
     <div className="input-with-icon">
-      <Icons>{children}</Icons>
+      <Icons src={src} alt={alt} height={height} />
       <InputField type={type} placeholder={placeholder} required={required} />
     </div>
   );

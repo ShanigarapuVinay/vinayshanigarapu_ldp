@@ -1,10 +1,7 @@
 import React from "react";
+import Button from "../../Atoms/Button/Button";
 import Typography from "../../Atoms/Typography/Typography";
 import InputWithIcon from "../../Molecules/InputWithIcon/InputWithIcon";
-import { ReactComponent as UsernameSvg } from "../../../asserts/smile.svg";
-import { ReactComponent as EmailSvg } from "../../../asserts/direct-notification.svg";
-import { ReactComponent as PasswordSvg } from "../../../asserts/lock.svg";
-import Button from "../../Atoms/Button/Button";
 import "./signUpForm.css";
 
 const SignUpForm: React.FC = () => {
@@ -12,15 +9,30 @@ const SignUpForm: React.FC = () => {
     <div className="sign-up-form ">
       <form>
         <Typography text="Sign Up" className="title" />
-        <InputWithIcon type="text" placeholder="Your Name" required={true}>
-          <UsernameSvg width="24" height="24" />{" "}
-        </InputWithIcon>
-        <InputWithIcon type="email" placeholder="Email Address" required={true}>
-          <EmailSvg width="24" height="24" />{" "}
-        </InputWithIcon>
-        <InputWithIcon type="password" placeholder="Password" required={true}>
-          <PasswordSvg width="24" height="24" />{" "}
-        </InputWithIcon>
+        <InputWithIcon
+          type="text"
+          placeholder="Your Name"
+          required={true}
+          src={'/asserts/smile.svg'}
+          alt="Your Name"
+          height="24"
+        />
+        <InputWithIcon
+          type="email"
+          placeholder="Email Address"
+          required={true}
+          src={'/asserts/direct-notification.svg'}
+          alt="Email"
+          height="24"
+        />
+        <InputWithIcon
+          type="password"
+          placeholder="Password"
+          required={true}
+          src={'/asserts/lock.svg'}
+          alt="Password"
+          height="24"
+        />
         <Button label="Sign Up" />
       </form>
     </div>

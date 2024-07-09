@@ -6,13 +6,21 @@ import "./cardData.css";
 export interface CardDataProps {
   mainText: string;
   subText: string;
-  children: React.ReactNode;
+  src: string;
+  alt: string;
+  height: string;
 }
-const CardData: React.FC<CardDataProps> = ({ mainText, subText, children }) => {
+const CardData: React.FC<CardDataProps> = ({
+  mainText,
+  subText,
+  src,
+  alt,
+  height,
+}) => {
   return (
     <div className="card-data">
       <div className="card-icon">
-        <Icons>{children}</Icons>
+        <Icons src={src} alt={alt} height={height} />
       </div>
       <Typography text={subText} className="sub" />
       <Typography text={mainText} className="main" />
