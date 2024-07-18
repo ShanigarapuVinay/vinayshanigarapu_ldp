@@ -1,0 +1,24 @@
+{
+  "todos": [
+    {
+      "id": "1721210881898",
+      "title": "Learn Full Stack",
+      "completed": false
+    },
+    {
+      "id": "1721210932716",
+      "title": "Learn AWS",
+      "completed": false
+    },
+    {
+      "id": "1721210953641",
+      "title": "Master Spring Boot",
+      "completed": false
+    },
+    {
+      "id": "1721210968102",
+      "title": "Master React",
+      "completed": false
+    }
+  ]
+}
