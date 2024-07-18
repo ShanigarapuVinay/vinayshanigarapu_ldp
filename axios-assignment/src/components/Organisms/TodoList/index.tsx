@@ -4,6 +4,7 @@ import { Container } from "@mui/material";
 import { DataGrid, GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 import Button from "../../Atoms/Button";
 import CheckBox from "../../Atoms/CheckBox";
+import { Text } from "../../../constants/Text/text";
 
 interface TodoListProps {
   todos: Todo[];
@@ -37,7 +38,7 @@ const TodoList: React.FC<TodoListProps> = ({
       width: 200,
       renderCell: (params: GridRenderCellParams) => (
         <Button variant="contained" onClick={() => editTodo(params.row.id)}>
-          Edit
+          {Text.EDIT}
         </Button>
       ),
     },
@@ -51,7 +52,7 @@ const TodoList: React.FC<TodoListProps> = ({
           color="error"
           onClick={() => deleteTodo(params.row.id)}
         >
-          Delete
+          {Text.DELETE}
         </Button>
       ),
     },
@@ -77,16 +78,16 @@ const TodoList: React.FC<TodoListProps> = ({
         autoHeight
         disableRowSelectionOnClick
         sx={{
-          '& .MuiDataGrid-cell': {
-            fontSize: '1rem',
+          "& .MuiDataGrid-cell": {
+            fontSize: "1rem",
           },
-          '& .MuiDataGrid-columnHeaders': {
-            fontSize: '1rem',
-            backgroundColor: '#f5f5f5',
-            fontWeight: 'bold',
+          "& .MuiDataGrid-columnHeaders": {
+            fontSize: "1rem",
+            backgroundColor: "#f5f5f5",
+            fontWeight: "bold",
           },
-          '& .MuiDataGrid-row': {
-            backgroundColor: '#fff',
+          "& .MuiDataGrid-row": {
+            backgroundColor: "#fff",
           },
         }}
       />

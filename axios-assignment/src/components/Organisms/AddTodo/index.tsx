@@ -1,8 +1,7 @@
-import { FormControl } from "@mui/material";
 import React, { useState } from "react";
-import TextField from "../../Atoms/TextField";
-import Button from "../../Atoms/Button";
 import Typography from "../../Atoms/Typography";
+import AddTodoData from "../../Molecules/AddTodoData";
+import { Text } from "../../../constants/Text/text";
 
 interface AddTodoProps {
   addTodo: (title: string) => void;
@@ -20,17 +19,17 @@ const AddTodo: React.FC<AddTodoProps> = ({ addTodo }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <FormControl>
-        <Typography variant="h4">Add Todo</Typography>
-        <TextField
-          type="text"
-          value={title}
-          label="Enter Your Todo"
-          variant="outlined"
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <Button variant="contained" type="submit">Add Todo</Button>
-      </FormControl>
+      <Typography variant="h4">{Text.ADDTODO}</Typography>
+      <AddTodoData
+        textFieldType="text"
+        textFieldValue={title}
+        textLabel="Enter Your Todo"
+        textVariant="outlined"
+        onChange={(e) => setTitle(e.target.value)}
+        buttonType="submit"
+        buttonVariant="contained"
+        buttonLabel="Add Todo"
+      />
     </form>
   );
 };

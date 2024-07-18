@@ -4,6 +4,7 @@ import { FormControl } from "@mui/material";
 import TextField from "../../Atoms/TextField";
 import Button from "../../Atoms/Button";
 import Typography from "../../Atoms/Typography";
+import { Text } from "../../../constants/Text/text";
 interface EditTodoProps {
   todo: Todo;
   updateTodo: (id: number, title: string) => void;
@@ -25,8 +26,8 @@ const EditTodo: React.FC<EditTodoProps> = ({
   }, [todo]);
   return (
     <form onSubmit={handleSubmit}>
+      <Typography variant="h4">{Text.EDITTODO}</Typography>
       <FormControl>
-        <Typography variant="h4">Update Todo</Typography>
         <TextField
           type="text"
           value={title}
@@ -34,10 +35,15 @@ const EditTodo: React.FC<EditTodoProps> = ({
           onChange={(e) => setTitle(e.target.value)}
         />
         <Button variant="contained" type="submit">
-          Update Todo
+          {Text.EDITTODO}
         </Button>
-        <Button variant="contained" type="submit" color="error" onClick={cancelEdit}>
-          Cancel
+        <Button
+          variant="contained"
+          type="submit"
+          color="error"
+          onClick={cancelEdit}
+        >
+          {Text.CANCEL}
         </Button>
       </FormControl>
     </form>

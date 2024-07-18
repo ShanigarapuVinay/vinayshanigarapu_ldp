@@ -5,6 +5,7 @@ import TodoList from "../../Organisms/TodoList";
 import EditTodo from "../../Organisms/EditTodo";
 import AddTodo from "../../Organisms/AddTodo";
 import theme from "../../../Helper/Theme";
+import { Text } from "../../../constants/Text/text";
 
 const Todos: React.FC = () => {
   const {
@@ -21,7 +22,7 @@ const Todos: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <Container>
-        <Typography variant="h1">Todo App</Typography>
+        <Typography variant="h1">{Text.TITLE}</Typography>
         <Stack direction="row">
           <TodoList
             todos={todos}
