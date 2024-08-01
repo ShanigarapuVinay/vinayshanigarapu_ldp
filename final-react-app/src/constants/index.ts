@@ -1,0 +1,15 @@
+export const Constants = {
+    LOGO: "/assets/logo.svg",
+    COIN: "/assets/coin.svg",
+    FLASH: "/assets/flash.svg",
+    HOME: "/assets/home.svg",
+    INFO: "/assets/info-circle.svg",
+    LOGONAME: "Seeder",
+    HOMETEXT: "Home",
+    CASH: "Cash Accleration",
+    WATCH: "Watch how to",
+    TITLE: "New cash kick",
+    DESCRIPTION: "Let’s setup a new cash kick to power your Saas",
+    BTN: "Review Your Credit",
+    BACK: "Back",
+}
