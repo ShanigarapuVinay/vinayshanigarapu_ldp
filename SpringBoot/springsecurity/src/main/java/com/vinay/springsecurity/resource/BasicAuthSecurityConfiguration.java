@@ -23,26 +23,11 @@ public class BasicAuthSecurityConfiguration {
         http.authorizeHttpRequests((requests) -> {
             ((AuthorizeHttpRequestsConfigurer.AuthorizedUrl)requests.anyRequest()).authenticated();
         });
-        //http.formLogin(Customizer.withDefaults());
         http.httpBasic(Customizer.withDefaults());
         http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         http.csrf().disable();
         return (SecurityFilterChain)http.build();
     }
-
-    // Create Users
-//    @Bean
-//    public UserDetailsService userDetailsService(){
-//        var user = User.withUsername("Vinay")
-//                                .password("{noop}vinayvirat9")
-//                                .roles("USER").build();
-//
-//        var admin = User.withUsername("admin")
-//                .password("{noop}admin")
-//                .roles("ADMIN").build();
-//
-//        return new InMemoryUserDetailsManager(user, admin);
-//    }
 
     @Bean
     public UserDetailsService userDetailsService(DataSource dataSource){
