@@ -29,6 +29,17 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
+    
+    @ExceptionHandler
+    public ResponseEntity<ErrorResponse> orderNotFoundException(OrderNotFoundException ex){
+        ErrorResponse error = new ErrorResponse();
+
+        error.setStatusCode(HttpStatus.NOT_FOUND.value());
+        error.setMessage(ex.getMessage());
+        error.setTimestamp(System.currentTimeMillis());
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
 
     @ExceptionHandler
     public ResponseEntity<ErrorResponse> badRequest(Exception ex){
