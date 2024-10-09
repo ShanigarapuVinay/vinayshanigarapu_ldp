@@ -8,17 +8,6 @@ from typing import List, Tuple
 load_dotenv()
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
-# Prepare sample documents
-
-
-documents = [
-    "The quick brown fox jumps over the lazy dog",
-    "Machine learning is a subset of artificial intelligence",
-    "Python is a popular programming language",
-    "Natural language processing helps computers understand human language",
-    "Vector databases are optimized for similarity search operations"
-]
-
 # Function to generate embeddings using OpenAI
 
 def create_embeddings(texts: List[str]) -> np.ndarray:
@@ -80,14 +69,28 @@ def cosine_similarity_search(
     
     return results
 
+# Function to load documents from a .txt file
 
-# Main execution
+def load_documents_from_txt(file_path: str) -> List[str]:
+    """
+    Load a single document from a TXT file
+    """
+    with open(file_path, 'r', encoding='utf-8') as file:
+        return [file.read()]
+
+documents = load_documents_from_txt('kata1.txt')
+
+# Generate embeddings for the documents
 
 print("Generating embeddings...")
 embeddings = create_embeddings(documents)
 
+# Initialize the FAISS vector database
+
 print("Initializing vector database...")
 index = initialize_vector_db(embeddings)
+
+# Function to search documents
 
 def search_documents(query: str, n_results: int = 3):
     """
@@ -100,8 +103,6 @@ def search_documents(query: str, n_results: int = 3):
     for doc, score in results:
         print(f"- Score {score:.4f}: {doc}")
 
+# Example usage
 query = "What is artificial intelligence?"
 search_documents(query)
-
-
-

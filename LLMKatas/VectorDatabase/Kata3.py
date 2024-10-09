@@ -7,18 +7,15 @@ import os
 load_dotenv()
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
-# Prepare the document corpus
+# Function to load documents from a .txt file
+def load_documents(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        documents = [line.strip() for line in file.readlines() if line.strip()]
+    return documents
 
-documents = [
-    "Python is a high-level programming language known for its simplicity and readability.",
-    "Machine learning is a subset of artificial intelligence that focuses on data and algorithms.",
-    "Natural Language Processing (NLP) enables computers to understand human language.",
-    "Deep learning models can automatically learn representations from data.",
-    "Vector databases are specialized databases for storing and retrieving vector embeddings."
-]
+documents = load_documents('kata3.txt')
 
 # Generate embeddings for the document corpus
-
 def generate_embeddings(texts):
     response = openai.Embedding.create(
         input=texts,
@@ -30,7 +27,6 @@ print("Generating embeddings for documents...")
 document_embeddings = generate_embeddings(documents)
 
 # Store embeddings in FAISS vector database
-
 dimension = len(document_embeddings[0])
 index = faiss.IndexFlatL2(dimension)
 document_embeddings_array = np.array(document_embeddings).astype('float32')
@@ -38,7 +34,6 @@ index.add(document_embeddings_array)
 print(f"Vector database created with {len(documents)} documents")
 
 # Function to retrieve relevant documents
-
 def get_relevant_context(query, k=2):
     # Generate embedding for the query
     query_embedding = generate_embeddings([query])[0]
@@ -52,7 +47,6 @@ def get_relevant_context(query, k=2):
     return relevant_docs
 
 # Function to generate chatbot response
-
 def generate_response(query):
     # Get relevant documents
     relevant_context = get_relevant_context(query)
@@ -69,7 +63,7 @@ def generate_response(query):
     
     # Generate response using ChatGPT
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4o",
         messages=[
             {"role": "system", "content": "You are a helpful assistant that answers questions based on the provided context."},
             {"role": "user", "content": prompt}
@@ -83,7 +77,6 @@ def generate_response(query):
     }
 
 # Interactive chatbot interface
-
 def chat():
     print("Chatbot initialized. Type 'quit' to exit.")
     while True:

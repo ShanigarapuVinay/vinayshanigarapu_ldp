@@ -1,0 +1,5 @@
+Python is a high-level programming language known for its simplicity and readability.
+Machine learning is a subset of artificial intelligence that focuses on data and algorithms.
+Natural Language Processing (NLP) enables computers to understand human language.
+Deep learning models can automatically learn representations from data.
+Vector databases are specialized databases for storing and retrieving vector embeddings.
