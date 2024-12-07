@@ -5,6 +5,7 @@ export const StyledTabs = styled(Tabs)({
   "& .MuiTabs-indicator": {
     backgroundColor: theme.palette.secondary.light,
   },
+  borderBottom: `1px solid ${theme.palette.secondary.contrastText}`,
 });
 
 export const StyledTab = styled(Tab)({
