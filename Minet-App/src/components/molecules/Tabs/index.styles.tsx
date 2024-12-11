@@ -10,9 +10,9 @@ export const StyledTabs = styled(Tabs)({
 
 export const StyledTab = styled(Tab)({
   textTransform: "none",
-  fontSize: "20px",
+  fontSize: theme.spacing(5),
   fontWeight: 400,
-  lineHeight: "28px",
+  lineHeight: theme.spacing(7),
   letterSpacing: "0.005em",
   color: theme.palette.primary.light,
   "&.Mui-selected": {

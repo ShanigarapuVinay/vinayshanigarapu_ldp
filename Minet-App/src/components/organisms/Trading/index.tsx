@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import { theme } from "../../../theme";
 import { DATA, HEADERS, IconPath } from "../../../utils/Constants";
 import Icon from "../../atoms/Icon";
-import Tabs from "../../atoms/Tabs";
+import Tabs from "../../molecules/Tabs";
 import Typography from "../../atoms/Typography";
 import AssertCard from "../../molecules/AssertCard";
-import Iconography from "../../molecules/Iconography";
 import { Header, Row, StyledBody, StyledRow, Wrapper } from "./index.styles";
+import IconTypography from "../../molecules/IconTypography";
 
 const Trading: React.FC = () => {
   const [tab, setTab] = useState(0);
@@ -40,14 +40,14 @@ const Trading: React.FC = () => {
           {HEADERS.map((item) => (
             <StyledRow key={item.id} width={item.width} height={item.height}>
               {item.icon ? (
-                <Iconography
+                <IconTypography
                   src={item.icon}
                   variant={item.variant}
                   color={theme.palette.secondary.dark}
                   key={item.id}
                 >
                   {item.text}
-                </Iconography>
+                </IconTypography>
               ) : (
                 <Typography
                   variant={item.variant}

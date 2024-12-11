@@ -3,7 +3,7 @@ import React from "react";
 import Typography from "../../atoms/Typography";
 import Icon from "../../atoms/Icon";
 
-interface IconographyProps extends TypographyProps {
+interface IconTypographyProps extends TypographyProps {
   src: string;
   alt?: string;
 }
@@ -13,7 +13,11 @@ const Wrapper = styled(Box)({
   alignItems: "center",
 });
 
-const Iconography: React.FC<IconographyProps> = ({ src, alt, ...props }) => {
+const IconTypography: React.FC<IconTypographyProps> = ({
+  src,
+  alt,
+  ...props
+}) => {
   return (
     <Wrapper>
       <Typography variant={props.variant} color={props.color}>
@@ -24,4 +28,4 @@ const Iconography: React.FC<IconographyProps> = ({ src, alt, ...props }) => {
   );
 };
 
-export default Iconography;
+export default IconTypography;

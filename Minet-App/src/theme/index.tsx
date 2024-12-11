@@ -40,4 +40,5 @@ export const theme = createTheme({
       lineHeight: "14px",
     },
   },
+  spacing: 4,
 });

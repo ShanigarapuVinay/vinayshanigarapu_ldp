@@ -2,15 +2,15 @@ import { Box, styled } from "@mui/material";
 import { theme } from "../../../theme";
 
 export const Wrapper = styled(Box)({
-  width: "1239px",
-  height: "856px",
+  width: theme.spacing(309.75),
+  height: theme.spacing(214),
   display: "flex",
   flexDirection: "column",
-  gap: "12px",
+  gap: theme.spacing(3),
 });
 
 export const Header = styled(Box)({
-  height: "42px",
+  height: theme.spacing(10.5),
   display: "flex",
   padding: "0px 24px",
 });
@@ -18,7 +18,7 @@ export const Header = styled(Box)({
 export const StyledBody = styled(Box)({
   display: "flex",
   flexDirection: "column",
-  gap: "12px",
+  gap: theme.spacing(3),
 });
 
 export const Row = styled(Box)({
@@ -26,7 +26,7 @@ export const Row = styled(Box)({
   display: "flex",
   border: `1px solid ${theme.palette.secondary.contrastText}`,
   padding: "0px 24px",
-  borderRadius: "4px",
+  borderRadius: theme.spacing(1),
   alignItems: "center",
   "&:hover": {
     boxShadow: "0px 1px 10px 0px #2C2C2C14",
