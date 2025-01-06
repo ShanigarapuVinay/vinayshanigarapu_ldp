@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Bar with Debouncing and Throttling</title>
+</head>
+
+<body>
+    <h1>Search Bar for Debouncing</h1>
+    <input type="text" id="searchBar" placeholder="Type to search...">
+    <div id="results"></div>
+
+    <h1>Search Bar for Throttling</h1>
+    <input type="text" id="searchBar2" placeholder="Type to search...">
+    <div id="results2"></div>
+
+    <script>
+        // Debounce function to delay the execution of a function
+        function debounce(func, wait) {
+            let timeout;
+            return function (...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), wait);
+            };
+        }
+
+        // Throttle function to limit the execution of a function
+        function throttle(func, limit) {
+            let lastFunc;
+            let lastRun;
+            return function (...args) {
+                if (!lastRun) {
+                    func.apply(this, args);
+                    lastRun = Date.now();
+                } else {
+                    clearTimeout(lastFunc);
+                    lastFunc = setTimeout(() => {
+                        if (Date.now() - lastRun >= limit) {
+                            func.apply(this, args);
+                            lastRun = Date.now();
+                        }
+                    }, limit - (Date.now() - lastRun));
+                }
+            };
+        }
+
+        const searchBar = document.getElementById('searchBar');
+        const searchBar2 = document.getElementById('searchBar2');
+
+        // Debounce
+        const debouncedInput = debounce((event) => {
+            console.log('(Debouncing) Searching for:', event.target.value);
+            document.getElementById('results').innerHTML = `Results for "${event.target.value}"`;
+        }, 2000);
+
+        // Throttle
+        const throttledSearch = throttle((event) => {
+            console.log('(Throttling) Searching for:', event.target.value);
+            document.getElementById('results2').innerHTML = `Results for "${event.target.value}"`;
+        }, 2000);
+
+        // Add event listener to the search bar
+        searchBar.addEventListener('input', debouncedInput);
+        searchBar2.addEventListener('input', throttledSearch);
+    </script>
+</body>
+
+</html>

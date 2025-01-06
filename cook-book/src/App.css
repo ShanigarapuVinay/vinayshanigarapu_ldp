@@ -1,0 +1,27 @@
+body{
+    background-color: #333;
+}
+.App .container h1{
+    color: #fff;
+    font-family: 'Raleway';
+    text-align: center;
+}
+.icon-add{
+    position: fixed;
+    color: #fff;
+    bottom: 60px;
+    right: 80px;
+    border: none;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+.icon-add:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}

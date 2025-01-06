@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VL Restaurant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="./Asserts/burger.png" type="image/x-icon">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0370024983.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Tables Section -->
+        <div class="tables-section">
+            <h2 class="title">Tables</h2>
+            <div class="search-container">
+                <input type="text" id="tableSearch" placeholder="Search table" class="search-input">
+                <button class="search-btn">
+                    <i class="fa-solid fa-magnifying-glass" id="tableSearchBar"></i>
+                    <i class="fa-solid fa-xmark" style="display: none;" id="clearTableSearch"></i>
+                </button>
+            </div>
+            <div id="tables" class="tables">
+                <!-- Tables will be dynamically generated here -->
+            </div>
+            <button id="addTableButton" class="icon-add">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+        </div>
+        <div id="tableAddModel" class="modal">
+            <div class="modal-content model-add-table">
+                <span class="tableAddClose" id="closeAddTableModal">
+                    <i class="fa-solid fa-xmark"></i>
+                </span>
+                <h2>Add Table</h2>
+                <form id="addTableForm">
+                    <fieldset>
+                        <label for="tableName">Table Name:</label>
+                        <input type="text" id="tableName" name="tableName" required>
+                    </fieldset>
+                    <fieldset>
+                        <label for="tableNumber">Table Number:</label>
+                        <input type="number" id="tableNumber" name="tableNumber" min="1" required>
+                    </fieldset>
+                    <button type="submit">Add Table</button>
+                </form>
+            </div>
+        </div>
+        <!-- Menu Section -->
+        <div class="menu-section">
+            <h2 class="title">Menu</h2>
+            <div class="search-container">
+                <input type="text" id="menuSearch" placeholder="Search menu" class="search-input">
+                <button class="search-btn">
+                    <i class="fa-solid fa-magnifying-glass" id="menuSearchBar"></i>
+                    <i class="fa-solid fa-xmark" style="display: none;" id="clearMenuSearch"></i>
+                </button>
+            </div>
+            <div id="menuItems" class="menu-items">
+                <!-- Menu items will be dynamically generated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Detailed View Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close">
+                <i class="fa-solid fa-xmark"></i>
+            </span>
+            <h2 id="tableOrdersHead">Order Details</h2>
+            <hr>
+            <div id="orderDetails" class="orders-container">
+                <!-- Order details will be dynamically generated here -->
+            </div>
+            <button id="generateBill" class="bill-btn">Close Session (Generate Bill)</button>
+        </div>
+    </div>
+    <iframe id="printFrame" style="display:none;"></iframe>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>

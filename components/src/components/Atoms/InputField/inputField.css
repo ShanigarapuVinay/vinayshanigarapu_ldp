@@ -1,0 +1,20 @@
+.input-field {
+  background-color: #262529;
+  display: flex;
+  align-items: center;
+  border: none;
+  outline: none;
+  color: #A5A5A6;
+  width: 368px;
+  height: 26px;
+  gap: 0px;
+  opacity: 0.6px;
+  font-size: 1rem;
+  line-height: 22.4px;
+}
+
+.input-field::placeholder {
+  color: #A5A5A6;
+  font-size: 1rem;
+  line-height: 22.4px;
+}

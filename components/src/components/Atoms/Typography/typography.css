@@ -1,0 +1,23 @@
+.title {
+  font-size: 36px;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  color: #E8E7F0;
+}
+.main{
+  font-size: 24px;
+  font-weight: 600;
+  color: #E8E7F0;
+}
+.heading2{
+  font-size: 20px;
+  color: #C9C8CC;
+}
+.sub{
+  font-size: 1rem;
+  color: #C9C8CC;
+}
+.sub2{
+  font-size: 1rem;
+  color: #E8E7F0;
+}

@@ -1,0 +1,9 @@
+<div class="navbar">
+    <h2>Taskify</h2>
+    <div>
+        <ul>
+            <li><a href="./">Home</a></li>
+            <li><a href="./list-todos">Todos</a></li>
+        </ul>
+    </div>
+</div>

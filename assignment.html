@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage Assignment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .score {
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Score Tracker</h1>
+    <div class="score">
+        Local Score: <span id="localScore">0</span>
+    </div>
+    <div class="score">
+        Session Score: <span id="sessionScore">0</span>
+    </div>
+    <button id="incrementButton">Increment Scores</button>
+
+    <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+.overlay {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.addRecipe-container {
+  color: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px);
+  padding: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 35%;
+}
+.addRecipe-container h2 {
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+}
+.close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.5);
+  font-size: 2em;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.close-btn:active,
+.close-btn:hover {
+  color: #000;
+}
+.addRecipe-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.addRecipe-container form input,
+textarea {
+  padding: 0.4rem;
+  margin-left: 10px;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 0.3rem;
+  font-family: "Merriweather", sans-serif;
+  border: none;
+  color: white;
+}
+.addRecipe-container form textarea {
+  height: 100px;
+}
+.addRecipe-container form input::placeholder,
+textarea::placeholder {
+  color: #fff;
+}
+.addRecipe-container form input[type="file"] {
+  color: #fff;
+  width: 50%;
+  background-color: transparent;
+}
+.addRecipe-container form button {
+  width: 150px;
+  padding: 10px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.8);
+  align-self: center;
+}
+.addRecipe-container form button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
