@@ -1,21 +1,22 @@
-import React, { useState } from "react";
+import MinusSquare from "@mui/icons-material/IndeterminateCheckBoxOutlined";
+import InfoIcon from "@mui/icons-material/InfoOutlined";
 import {
+  Box,
+  Checkbox,
+  IconButton,
+  Paper,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
-  Checkbox,
-  Typography,
-  Paper,
-  Box,
-  IconButton,
+  ThemeProvider,
   Tooltip,
+  Typography,
 } from "@mui/material";
-import MinusSquare from "@mui/icons-material/IndeterminateCheckBoxOutlined";
-import InfoIcon from "@mui/icons-material/InfoOutlined";
-import styled from "@emotion/styled";
+import React, { useState } from "react";
+import theme from "../Helper/Theme";
 import { Contract } from "../types/Contract";
 import { contractHeadings } from "../types/ContractHeadings";
 
@@ -47,124 +48,90 @@ const ContractTable: React.FC<ContractTableProps> = ({ contracts }) => {
   };
 
   const isSelected = (name: string) => selected.indexOf(name) !== -1;
-  const StyledTableRow = styled(TableRow)(() => ({
-    "&.Mui-selected, &.Mui-selected:hover": {
-      backgroundColor: "#393552",
-    },
-    "&:hover": {
-      backgroundColor: "#393552",
-    },
-  }));
   return (
-    <Box
-      sx={{
-        padding: 5,
-        backgroundColor: "#201F24",
-        borderRadius: "12px",
-        color: "#fff",
-        width: "80%",
-      }}
-    >
-      <Typography
-        variant="h2"
-        gutterBottom
-        sx={{ fontSize: "24px", lineHeight: "29.4px", fontWeight: "600" }}
+    <ThemeProvider theme={theme}>
+      <Box
+        sx={{
+          padding: 5,
+          backgroundColor: "#201F24",
+          borderRadius: "12px",
+          color: "#fff",
+          width: "80%",
+        }}
       >
-        Your Contracts
-        <Tooltip title="Information about your contracts">
-          <IconButton size="medium" sx={{ marginLeft: 1, color: "#A5A5A6" }}>
-            <InfoIcon fontSize="medium" />
-          </IconButton>
-        </Tooltip>
-      </Typography>
-      <TableContainer
-        component={Paper}
-        sx={{ backgroundColor: "#201F24", border: "none" }}
-      >
-        <Table>
-          <TableHead sx={{ backgroundColor: "#262529" }}>
-            <TableRow>
-              <TableCell padding="checkbox" sx={{ borderBottom: "none" }}>
-                <MinusSquare
-                  sx={{ marginLeft: 1, marginTop: 1, color: "#727080" }}
-                />
-              </TableCell>
-              {contractHeadings.map((item) => (
-                <TableCell sx={{ borderBottom: "none" }}>
-                  <Typography variant="body2" sx={{ color: "#A5A5A6" }}>
-                    {item}
-                  </Typography>
+        <Typography variant="h2" gutterBottom>
+          Your Contracts
+          <Tooltip title="Information about your contracts">
+            <IconButton size="medium">
+              <InfoIcon fontSize="medium" />
+            </IconButton>
+          </Tooltip>
+        </Typography>
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell padding="checkbox">
+                  <MinusSquare
+                    sx={{ marginLeft: 1, marginTop: 1, color: "#727080" }}
+                  />
                 </TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {contracts.map((contract) => {
-              const isItemSelected = isSelected(contract.name);
-              return (
-                <StyledTableRow
-                  key={contract.name}
-                  hover
-                  onClick={() => handleSelect(contract.name)}
-                  role="checkbox"
-                  aria-checked={isItemSelected}
-                  selected={isItemSelected}
-                  sx={{
-                    cursor: "pointer",
-                  }}
-                >
-                  <TableCell padding="checkbox" sx={{ borderBottom: "none" }}>
-                    <Checkbox
-                      checked={isItemSelected}
-                      sx={{
-                        color: "#727080",
-                        "&.Mui-checked": {
-                          color: "#B4A9FF",
-                        },
-                      }}
-                    />
+                {contractHeadings.map((item) => (
+                  <TableCell>
+                    <Typography variant="body2">{item}</Typography>
                   </TableCell>
-                  <TableCell
-                    component="th"
-                    scope="row"
-                    sx={{ borderBottom: "none" }}
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {contracts.map((contract) => {
+                const isItemSelected = isSelected(contract.name);
+                return (
+                  <TableRow
+                    key={contract.name}
+                    hover
+                    onClick={() => handleSelect(contract.name)}
+                    role="checkbox"
+                    aria-checked={isItemSelected}
+                    selected={isItemSelected}
+                    sx={{
+                      cursor: "pointer",
+                    }}
                   >
-                    <Typography
-                      variant="body2"
-                      sx={{ color: "#E8E7F0", fontSize: "14px" }}
-                    >
-                      {contract.name}
-                    </Typography>
-                  </TableCell>
-                  <TableCell sx={{ borderBottom: "none" }}>
-                    <Typography variant="body2" sx={{ color: "#A5A5A6" }}>
-                      {contract.type}
-                    </Typography>
-                  </TableCell>
-                  <TableCell sx={{ borderBottom: "none" }}>
-                    <Typography variant="body2" sx={{ color: "#A5A5A6" }}>
-                      {contract.perPayment}
-                    </Typography>
-                  </TableCell>
-                  <TableCell sx={{ borderBottom: "none" }}>
-                    <Typography variant="body2" sx={{ color: "#A5A5A6" }}>
-                      {contract.termLength}
-                      <br />
-                      {contract.fee} fee
-                    </Typography>
-                  </TableCell>
-                  <TableCell sx={{ borderBottom: "none" }}>
-                    <Typography variant="body2" sx={{ color: "#A5A5A6" }}>
-                      {contract.payment}
-                    </Typography>
-                  </TableCell>
-                </StyledTableRow>
-              );
-            })}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </Box>
+                    <TableCell padding="checkbox">
+                      <Checkbox checked={isItemSelected} />
+                    </TableCell>
+                    <TableCell component="th" scope="row">
+                      <Typography variant="body1">{contract.name}</Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography variant="body2">{contract.type}</Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography variant="body2">
+                        {contract.perPayment}
+                      </Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography variant="body2">
+                        {contract.termLength}
+                        <br />
+                        {contract.fee} fee
+                      </Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography variant="body2">
+                        {contract.payment}
+                      </Typography>
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Box>
+    </ThemeProvider>
   );
 };
 
