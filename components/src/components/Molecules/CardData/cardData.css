@@ -1,0 +1,15 @@
+.card-data{
+    line-height: 5px;
+}
+.card-data .card-icon {
+    text-align: center;
+    background-color: #262529;
+    width: 80px;
+    padding: 20px 0px;
+    gap: 20px;
+    border-radius: 12px;
+    border: 1px 0px 0px 0px;
+    opacity: 0px;
+    margin-bottom: 30px;
+  }
+  

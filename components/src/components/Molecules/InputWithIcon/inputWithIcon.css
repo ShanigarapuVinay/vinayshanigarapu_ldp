@@ -1,0 +1,17 @@
+.input-with-icon {
+  display: flex;
+  width: Fixed (434px) px;
+  height: Fixed (56px) px;
+  padding: 16px 15px 16px 15px;
+  gap: 12px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border: 1px;
+  opacity: 0px;
+  background-color: #262529;
+}
+
+.input-with-icon .icon {
+  display: flex;
+  align-items: center;
+}

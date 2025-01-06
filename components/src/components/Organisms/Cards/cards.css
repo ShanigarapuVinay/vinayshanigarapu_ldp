@@ -1,0 +1,13 @@
+.cards {
+  background-color: #201f24;
+  display: flex;
+  gap: 100px;
+  width: Fixed (700px) px;
+  height: Fixed (259px) px;
+  top: 143px;
+  left: 278px;
+  padding: 50px 70px;
+  border-radius: 12px;
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+}
