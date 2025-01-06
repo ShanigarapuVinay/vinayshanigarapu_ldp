@@ -1,0 +1,10 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Thymeleaf Demo</title>
+        <link rel="stylesheet" th:href="@{/css/hello.css}">
+    </head>
+    <body>
+        <p th:text="'Hello Vinay the Time you are logged in is ' + ${theDate}" class="welcome"/>
+    </body>
+</html>
